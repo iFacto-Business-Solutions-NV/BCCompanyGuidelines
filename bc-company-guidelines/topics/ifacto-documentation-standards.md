@@ -9,6 +9,19 @@ estimated_time: "30 minutes"
 priority: "high"
 status: "mandatory"
 added: "December 2024"
+relevance_signals:
+  keywords: [documentation, changelog, user guides, setup docs, Docs folder, test documentation, CHANGELOG.md, README.md, functional documentation, technical documentation]
+  anti_pattern_indicators:
+    - "missing CHANGELOG.md entry for release"
+    - "no documentation update for new feature"
+    - "missing Docs folder structure"
+    - "undocumented setup steps"
+  positive_pattern_indicators:
+    - "CHANGELOG.md updated with version entry"
+    - "Docs folder with complete structure"
+    - "setup documentation provided and updated"
+    - "user guides up to date"
+relevance_threshold: 0.4
 ---
 
 # iFacto Documentation Standards for BC Projects

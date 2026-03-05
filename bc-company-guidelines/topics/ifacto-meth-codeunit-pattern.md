@@ -9,6 +9,19 @@ estimated_time: "20 minutes"
 priority: "high"
 status: "mandatory"
 added: "October 2025"
+relevance_signals:
+  constructs: [codeunit, trigger, OnInsert, OnModify, OnDelete, OnRename, OnValidate]
+  keywords: [meth codeunit, business logic, table trigger, architecture, single public procedure, delegation pattern, separation of concerns]
+  anti_pattern_indicators:
+    - "business logic directly in table trigger"
+    - "multiple public procedures in business codeunit"
+    - "direct validation logic in OnInsert without delegation"
+  positive_pattern_indicators:
+    - "single public procedure in Meth codeunit"
+    - "trigger delegates to Meth codeunit"
+    - "business logic isolated in dedicated codeunit"
+applicable_object_types: [table, codeunit]
+relevance_threshold: 0.5
 ---
 
 # iFacto Meth Codeunit Pattern (Company-Specific)

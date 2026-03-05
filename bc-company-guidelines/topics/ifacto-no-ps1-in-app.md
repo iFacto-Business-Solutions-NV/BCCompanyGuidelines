@@ -9,6 +9,17 @@ estimated_time: "5 minutes"
 priority: "critical"
 status: "mandatory"
 added: "February 2026"
+relevance_signals:
+  keywords: [powershell, ps1, test scripts, app folder, project structure, deployment scripts, script location, production app]
+  anti_pattern_indicators:
+    - "PowerShell script in App folder"
+    - "ps1 file in production app directory"
+    - "test script outside Test folder"
+  positive_pattern_indicators:
+    - "ps1 scripts in Test folder only"
+    - "PowerShell scripts outside App directory"
+    - "test scripts organized in Test project"
+relevance_threshold: 0.4
 ---
 
 # iFacto PowerShell Test Scripts – Not Allowed in Main App

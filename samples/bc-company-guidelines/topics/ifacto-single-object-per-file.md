@@ -9,6 +9,16 @@ estimated_time: "10 minutes"
 priority: "high"
 status: "mandatory"
 added: "October 2025"
+relevance_signals:
+  keywords: [file organization, single object per file, code structure, AL file, multiple objects, object declaration]
+  anti_pattern_indicators:
+    - "multiple AL object declarations in single file"
+    - "table and codeunit in same file"
+    - "more than one object type per file"
+  positive_pattern_indicators:
+    - "one object per AL file"
+    - "dedicated file per object"
+relevance_threshold: 0.4
 ---
 
 # iFacto Code Organization Standards (Company Delta)

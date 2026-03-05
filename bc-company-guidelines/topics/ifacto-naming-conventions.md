@@ -9,6 +9,25 @@ estimated_time: "15 minutes"
 priority: "high"
 status: "mandatory"
 added: "October 2025"
+detection:
+  enabled: true
+  pattern: |
+    \b(Klant|Artikel|Factuur|Bestelling|Leverancier|Debiteuren|Crediteuren|Magazijn|Voorraad|Inkooporder|Verkooporder|Medewerker|Relatie|Rekening)\b
+  check_type: "warning"
+relevance_signals:
+  constructs: [var, procedure, field, trigger]
+  keywords: [naming convention, English identifiers, Dutch words, Temp prefix, temporary record, variable ordering, PascalCase, iFacto naming]
+  anti_pattern_indicators:
+    - "Dutch identifier in AL code"
+    - "non-English variable name"
+    - "temporary record variable without Temp prefix"
+    - "non-English caption value"
+  positive_pattern_indicators:
+    - "English-only identifiers throughout"
+    - "Temp prefix on temporary record variable"
+    - "correct variable declaration ordering"
+applicable_object_types: [codeunit, table, page, report, pageextension, tableextension, enum, enumextension]
+relevance_threshold: 0.5
 ---
 
 # iFacto Naming Conventions for Business Central

@@ -9,6 +9,27 @@ estimated_time: "15 minutes"
 priority: "critical"
 status: "mandatory"
 added: "December 2025"
+detection:
+  enabled: true
+  pattern: |
+    Subtype\s*=\s*Upgrade
+  check_type: "warning"
+relevance_signals:
+  constructs: [codeunit, OnUpgradePerCompany, OnUpgradePerDatabase, OnInstallAppPerCompany, OnInstallAppPerDatabase, CheckPreconditionsPerCompany, CheckPreconditionsPerDatabase]
+  keywords: [upgrade codeunit, install codeunit, data migration, deployment, synchronization, companion codeunit, version tracking, NavApp.GetCurrentModuleInfo]
+  properties: [Subtype]
+  anti_pattern_indicators:
+    - "upgrade codeunit without corresponding install codeunit"
+    - "OnUpgradePerCompany without CheckPreconditions"
+    - "data migration without version tracking"
+    - "upgrade logic with no install counterpart"
+  positive_pattern_indicators:
+    - "paired upgrade and install codeunits"
+    - "version-based migration with NavApp.GetCurrentModuleInfo"
+    - "CheckPreconditions validation before upgrade"
+    - "synchronized upgrade and install handling"
+applicable_object_types: [codeunit]
+relevance_threshold: 0.6
 ---
 
 # iFacto Upgrade and Install Codeunit Synchronization (Company-Specific)

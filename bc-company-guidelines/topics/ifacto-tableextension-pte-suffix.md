@@ -9,6 +9,24 @@ estimated_time: "10 minutes"
 priority: "critical"
 status: "mandatory"
 added: "February 2026"
+detection:
+  enabled: true
+  pattern: |
+    (field\s*\(\s*\d+\s*;\s*"[^"]*(?<!PTE)"\s*;|procedure\s+\w+(?<!PTE)\s*\()
+  check_type: "error"
+relevance_signals:
+  constructs: [tableextension, field, procedure]
+  keywords: [PTE suffix, tableextension fields, custom fields, naming standard, iFacto suffix, extension fields, field naming, procedure naming]
+  anti_pattern_indicators:
+    - "field without PTE suffix in tableextension"
+    - "procedure without PTE suffix in tableextension"
+    - "custom field missing PTE identifier"
+  positive_pattern_indicators:
+    - "field name ending in PTE"
+    - "procedure name ending in PTE"
+    - "all custom members use PTE suffix"
+applicable_object_types: [tableextension]
+relevance_threshold: 0.7
 ---
 
 # iFacto TableExtension PTE Suffix Standard

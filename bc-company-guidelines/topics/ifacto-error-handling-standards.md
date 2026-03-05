@@ -9,6 +9,24 @@ estimated_time: "15 minutes"
 priority: "high"
 status: "mandatory"
 added: "October 2025"
+detection:
+  enabled: true
+  pattern: |
+    (Error|Message|Confirm)\s*\(\s*['"]
+  check_type: "error"
+relevance_signals:
+  constructs: [Error, Message, Confirm, StrSubstNo]
+  keywords: [error handling, label variables, localization, user messages, hardcoded text, mandatory labels]
+  anti_pattern_indicators:
+    - "hardcoded string in Error()"
+    - "literal text in Message()"
+    - "string literal passed to user-facing function"
+  positive_pattern_indicators:
+    - "label variable used in Error()"
+    - "Label declaration for user messages"
+    - "TextConst or Label for all user-facing text"
+applicable_object_types: [codeunit, table, page, report, pageextension, tableextension]
+relevance_threshold: 0.6
 ---
 
 # iFacto Error Handling Standards

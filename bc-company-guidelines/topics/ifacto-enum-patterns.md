@@ -9,6 +9,23 @@ estimated_time: "10 minutes"
 priority: "medium"
 status: "mandatory"
 added: "October 2025"
+detection:
+  enabled: true
+  pattern: |
+    Extensible\s*=\s*true
+  check_type: "warning"
+relevance_signals:
+  constructs: [enum, enumextension, implements]
+  keywords: [enum, extensible, interface, implementation, enum pattern, company standard, Extensible property]
+  properties: [Extensible]
+  anti_pattern_indicators:
+    - "Extensible = true without interface implementation"
+    - "enum marked extensible without implements clause"
+  positive_pattern_indicators:
+    - "enum implements interface with Extensible = true"
+    - "Extensible = false for non-interface enums"
+applicable_object_types: [enum, enumextension]
+relevance_threshold: 0.5
 ---
 
 # iFacto Enum Patterns (Company Delta)
