@@ -1,7 +1,7 @@
 ---
 description: "Apply all steps to create a pull request for your new developments — includes JIRA validation, documentation, and Azure DevOps PR creation."
 agent: iFacto.Documentation
-tools: [read, search, execute, bc-code-intel/*, al-mcp-server/*, mcp-server-atlassian-jira/*, azure-devops-mcp-server/*]
+tools: [read, search, execute, bc-code-intel/*, al-mcp-server/*, ms-dynamics-smb.al/*, mcp-server-atlassian-jira/*]
 ---
 
 # Pull Request Documentation
@@ -9,18 +9,18 @@ tools: [read, search, execute, bc-code-intel/*, al-mcp-server/*, mcp-server-atla
 Creates comprehensive pull request documentation with 5 mandatory sections.
 
 ## Step 1: JIRA Validation (MANDATORY FIRST)
-Use the `jira-enrichment` skill:
 1. Validate JIRA issue key is provided — **STOP and ask if missing** (NEVER fabricate)
-2. Retrieve issue details: summary, description, acceptance criteria
-3. Compare PR changes to requirements: ✅ met / ⚠️ partial / ❌ not met / 🔍 scope creep
-4. **Get user confirmation before proceeding**
+2. Retrieve issue via `mcp-server-atlassian-jira/jira_get` → `/rest/api/3/issue/{KEY}`
+3. Extract: summary, description, acceptance criteria
+4. Compare PR changes to requirements: ✅ met / ⚠️ partial / ❌ not met / 🔍 scope creep
+5. **Get user confirmation before proceeding**
 
 ## Step 2: Specialist Consultation
 Consult **taylor-docs** via `mcp_bc-code-intel_ask_bc_expert` for proper PR documentation structure and BC-specific patterns.
 
 ## Step 3: Change Detection
-- Detect uncommitted changes + branch-specific commits (since branch created from main/master)
-- Run `al_symbolsearch` to build accurate object inventory
+- Detect uncommitted changes + branch-specific commits (since branch created from main/master) — **these are the only files in scope**
+- Run `ms-dynamics-smb.al/al_symbolsearch` scoped to the changed files only to build an accurate object inventory
 - Follow the `al-build-validation` skill (diagnostics-only) to capture build status
 - If NO test files found: flag as missing automated tests — **NEVER fabricate test content**
 
@@ -68,11 +68,11 @@ Commit info
 ### Authentication failure
 If `az rest` returns 401/403 → tell the user: "Azure CLI token expired. Run `az login` to re-authenticate, then retry."
 
-### Fallback to MCP tool
+### Fallback
 If `az rest` fails for ANY other reason (encoding error, network, unexpected response):
-1. Inform the user: "REST API failed: [error]. Falling back to Azure DevOps MCP tool."
-2. Use `repo_create_pull_request` from `azure-devops-mcp-server` with the same title and description
-3. Continue with Step 6 as normal
+1. Inform the user: "REST API failed: [error]. Please check your Azure CLI authentication and network."
+2. Suggest the user retry with `az login` followed by the same `az rest` command
+3. Do NOT use any MCP-based Azure DevOps tools — always use Azure CLI (`az devops`, `az repos`, `az rest`)
 
 ## Step 6: Update JIRA Issue
 If JIRA was validated: add comment with PR link + description (excluding Deployment and Assessment sections).

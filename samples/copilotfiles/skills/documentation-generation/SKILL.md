@@ -48,7 +48,7 @@ All documentation lives in `App/Docs/`:
 
 **`Docs/Dev/`** — Developer reference only:
 - Technical implementation details, architecture notes
-- Known technical issues (from `al_getdiagnostics` findings)
+- Known technical issues (from `ms-dynamics-smb.al/al_getdiagnostics` findings)
 - Dependency documentation
 
 **Constraints:**
@@ -79,8 +79,8 @@ Group by ISO week: `## YYYY.WW` (newest first)
 ## Code Verification (MANDATORY)
 
 Before writing any documentation:
-1. Run `al_symbolsearch` to enumerate existing objects
-2. Run `al_getdiagnostics` to check build health
+1. Run `ms-dynamics-smb.al/al_symbolsearch` to enumerate existing objects
+2. Run `ms-dynamics-smb.al/al_getdiagnostics` to check build health
 3. Read actual implementation code with `read_file`, `grep_search`
 4. Verify ALL field names, captions, procedures, workflows, setup fields, page names
 5. **NEVER assume** — always verify against actual code

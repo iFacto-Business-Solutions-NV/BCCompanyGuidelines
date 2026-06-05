@@ -14,10 +14,10 @@ description: 'Build, diagnose, and fix AL code iteratively. Use when: compiling 
 ## Procedure
 
 ### Step 1: Build the Project
-Run `al_build` to compile the AL project.
+Run `ms-dynamics-smb.al/al_build` to compile the AL project.
 
 ### Step 2: Collect Diagnostics
-Run `al_getdiagnostics` to get detailed error/warning/hint information.
+Run `ms-dynamics-smb.al/al_getdiagnostics` to get detailed error/warning/hint information.
 - **Errors**: Hard violations preventing compilation — MUST fix
 - **Warnings**: Potential issues flagged by compiler — review with user
 - **Hints**: Code quality signals — address if relevant
@@ -26,8 +26,8 @@ Run `al_getdiagnostics` to get detailed error/warning/hint information.
 For each error:
 1. Read the affected file and understand the error context
 2. Apply the fix
-3. Rebuild with `al_build`
-4. Re-run `al_getdiagnostics` to confirm the fix and check for new issues
+3. Rebuild with `ms-dynamics-smb.al/al_build`
+4. Re-run `ms-dynamics-smb.al/al_getdiagnostics` to confirm the fix and check for new issues
 5. Repeat until zero errors
 
 ### Step 4: Handle Warnings
@@ -36,8 +36,8 @@ For each error:
 - Document accepted warnings with rationale
 
 ### Step 5: Confirm Clean Build
-- Final `al_build` returns success
-- `al_getdiagnostics` shows zero errors
+- Final `ms-dynamics-smb.al/al_build` returns success
+- `ms-dynamics-smb.al/al_getdiagnostics` shows zero errors
 - Report: errors fixed, warnings remaining, build status
 
 ## Output Format
