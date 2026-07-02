@@ -21,7 +21,7 @@ Consult **taylor-docs** via `mcp_bc-code-intel_ask_bc_expert` for proper PR docu
 ## Step 3: Change Detection
 - Detect uncommitted changes + branch-specific commits (since branch created from main/master) — **these are the only files in scope**
 - Run `ms-dynamics-smb.al/al_symbolsearch` scoped to the changed files only to build an accurate object inventory
-- Follow the `al-build-validation` skill (diagnostics-only) to capture build status
+- Follow the `iFacto.al-build-validation` skill (diagnostics-only) to capture build status
 - If NO test files found: flag as missing automated tests — **NEVER fabricate test content**
 
 ## Step 4: Generate PR Description

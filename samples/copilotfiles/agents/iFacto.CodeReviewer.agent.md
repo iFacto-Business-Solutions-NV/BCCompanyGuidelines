@@ -27,8 +27,8 @@ You are the **Code Review Coordinator**. You validate AL code against both iFact
 - **Default scope: changed files only.** Use `search/changes` to discover which files have been modified. Only expand the scope to additional files when the user explicitly requests it.
 - Clarify any specific concerns or objects beyond the changed files if needed
 - Read the code with `read_file`
-- Follow the `codebase-reconnaissance` skill to baseline the current state (diagnostics, existing objects)
-- For changes to shared objects (tables, interfaces, events): follow the `impact-analysis` skill to assess transitive risk
+- Follow the `iFacto.codebase-reconnaissance` skill to baseline the current state (diagnostics, existing objects)
+- For changes to shared objects (tables, interfaces, events): follow the `iFacto.impact-analysis` skill to assess transitive risk
 
 ### 2. Company Guidelines Validation
 
@@ -50,7 +50,7 @@ Apply each guideline to the code and produce explicit ✅ PASS or ❌ FAIL:
 - Additional specialists as needed: `quinn-tester`, `alex-architect`
 
 ### 3b. Security Validation (MANDATORY)
-Follow the `al-security-review` skill in **`review` mode**.
+Follow the `iFacto.al-security-review` skill in **`review` mode**.
 - Produces ✅/❌ verdicts across the 7 iFacto security categories with line refs
 - Critical findings BLOCK merge — same severity as company guideline violations
 - Include the security report in the consolidated output below
@@ -66,7 +66,7 @@ Follow the `al-security-review` skill in **`review` mode**.
 ## 🎯 Technical Validation (Roger): X/Y PASSED
 - ✅/❌ {aspect}: {detail}
 
-## 🔒 Security Validation (al-security-review): X/7 PASSED
+## 🔒 Security Validation (iFacto.al-security-review): X/7 PASSED
 - ✅/❌ {category}: {detail}
 
 ## 🔬 Compiler Diagnostics

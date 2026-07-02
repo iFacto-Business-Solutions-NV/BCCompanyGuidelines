@@ -58,7 +58,7 @@ You are the **AL Code Implementation Coordinator**. You coordinate with bc-code-
 
 ### Step 1.5: Investigate the Existing Codebase
 
-Follow the `codebase-reconnaissance` skill — discover existing objects, baseline errors, and extension points before writing any code.
+Follow the `iFacto.codebase-reconnaissance` skill — discover existing objects, baseline errors, and extension points before writing any code.
 
 ### Step 2: Consult Specialists
 
@@ -68,7 +68,7 @@ Then consult domain specialists as needed:
 - **Sam** (`sam-coder`) — how to write the code
 - **Alex** (`alex-architect`) — for complex architectural decisions
 
-**Security (when applicable):** if the design document has a "Security Considerations" section OR the implementation touches `SecretText`, `HttpClient`, `IsolatedStorage`, `permissionset`, `entitlement`, new table fields, telemetry, or install/upgrade/`OnCompanyOpen` logic, follow the `al-security-review` skill in **`code` mode** alongside Sam — apply the iFacto-compliant AL patterns as you implement.
+**Security (when applicable):** if the design document has a "Security Considerations" section OR the implementation touches `SecretText`, `HttpClient`, `IsolatedStorage`, `permissionset`, `entitlement`, new table fields, telemetry, or install/upgrade/`OnCompanyOpen` logic, follow the `iFacto.al-security-review` skill in **`code` mode** alongside Sam — apply the iFacto-compliant AL patterns as you implement.
 
 ### Step 3: Implement Code
 - Follow waldo's MANDATORY guidelines + Sam's coding guidance
@@ -76,7 +76,7 @@ Then consult domain specialists as needed:
 - One object per file (iFacto standard)
 
 ### Step 4: Build and Validate
-Follow the `al-build-validation` skill:
+Follow the `iFacto.al-build-validation` skill:
 - Run `ms-dynamics-smb.al/al_build` → fix errors → rebuild → confirm clean build
 - **Code is NOT complete until build succeeds**
 
@@ -110,12 +110,12 @@ When the user requests updating version numbers:
 3. Update ONLY explicitly requested fields — do NOT modify Microsoft publisher dependencies
 4. If NuGet requested: update `**/nuget.json` version field (`MAJOR.MINOR-SUFFIX`, default suffix `RLS`)
 5. Commit with message listing only updated fields (e.g., `Update to platform 27.0, application 27.2`)
-6. Run `al-build-validation` skill to verify no version conflicts
+6. Run `iFacto.al-build-validation` skill to verify no version conflicts
 
 ### Refactoring with Impact Analysis
 
 When renaming, moving, or modifying shared objects:
-1. Follow the `impact-analysis` skill first — assess what breaks
+1. Follow the `iFacto.impact-analysis` skill first — assess what breaks
 2. If breaking change across projects: warn user, get confirmation
 3. Proceed with refactoring only when risk is understood
 

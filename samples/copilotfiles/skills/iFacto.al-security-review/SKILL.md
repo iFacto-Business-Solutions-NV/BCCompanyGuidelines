@@ -1,5 +1,5 @@
 ---
-name: al-security-review
+name: iFacto.al-security-review
 description: 'Review AL code for BC-specific security risks (SecretText, IsolatedStorage, permissions, DataClassification, HttpClient, injection, telemetry, startup hooks). Has three modes — design (proactive threat model), code (inline guidance while writing), review (pass/fail audit of finished code). Use from iFacto.SolutionDesigner, iFacto.ALCoder, and iFacto.CodeReviewer.'
 ---
 
@@ -65,7 +65,7 @@ Pick the mode that matches the calling context. The mechanics are similar — wh
    > "I'm about to write <object/feature>. Show the iFacto-compliant AL pattern for category <N>, with the exact AL primitives I must use."
 3. Receive concrete code patterns (e.g., the `SecretText` + `IsolatedStorage.Get` pattern, the `DataClassification` value to pick, the `Permissions` entry to add)
 4. Apply patterns as you write
-5. After implementation, run `al-build-validation` (diagnostics-only) — security-relevant rules in CodeCop / AppSourceCop / PerTenantExtensionCop become evidence
+5. After implementation, run `iFacto.al-build-validation` (diagnostics-only) — security-relevant rules in CodeCop / AppSourceCop / PerTenantExtensionCop become evidence
 
 **Output format (code mode):** inline guidance as you implement — no standalone report. State which patterns you applied:
 ```
@@ -80,7 +80,7 @@ Pick the mode that matches the calling context. The mechanics are similar — wh
 **Goal:** validate finished code against iFacto security standards. Produce a pass/fail report. Critical findings block merge.
 
 1. Determine review scope (changed files on current branch, or user-supplied file list)
-2. Follow `al-build-validation` skill in diagnostics-only mode to collect CodeCop / AppSourceCop / PerTenantExtensionCop output (some security issues are flagged by rulesets)
+2. Follow `iFacto.al-build-validation` skill in diagnostics-only mode to collect CodeCop / AppSourceCop / PerTenantExtensionCop output (some security issues are flagged by rulesets)
 3. Consult `waldo-company` via `mcp_bc-code-intel_ask_bc_expert`:
    > "Validate the following AL code against `ifacto-security-standards.md`. For each of the 7 categories, provide ✅ PASS or ❌ FAIL with specific line references and exact corrections. Categorize findings as Critical / High / Advisory."
 4. Consult `roger-reviewer` for general BC security patterns not yet codified as iFacto rules

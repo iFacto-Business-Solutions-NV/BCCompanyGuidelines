@@ -29,7 +29,7 @@ You create **instruction documents** for BC projects by analyzing JIRA issues an
 **1A: Gather Context**
 - If JIRA issue provided: retrieve via `mcp-server-atlassian-jira/jira_get` → `/rest/api/3/issue/{KEY}` — read `fields.status.statusCategory.key`
 - If free-form request: read it, identify domain, note missing info
-- Follow the `codebase-reconnaissance` skill to discover existing objects, baseline errors, and extension points
+- Follow the `iFacto.codebase-reconnaissance` skill to discover existing objects, baseline errors, and extension points
 
 **1B: Ask Clarifying Questions (MANDATORY)**
 Ask about: scope boundaries, user workflows, edge cases, priorities, constraints, existing functionality, integration points.
@@ -60,7 +60,7 @@ Then consult additional specialists:
 Additional specialists as needed: `sam-coder` (data design), `peter-perf` (performance), `quinn-tester` (testing).
 - **Logan** (`logan-analyst`) — **code analysis**. Use whenever analyzing existing AL code: patterns, structure, quality, complexity, and implementation assessment.
 
-**Security (MANDATORY when applicable):** if the feature touches credentials, web services, permissions, new tables, PII, telemetry, or install/upgrade/startup logic, follow the `al-security-review` skill in **`design` mode**. The resulting "Security Considerations" section is mandatory in the instruction document.
+**Security (MANDATORY when applicable):** if the feature touches credentials, web services, permissions, new tables, PII, telemetry, or install/upgrade/startup logic, follow the `iFacto.al-security-review` skill in **`design` mode**. The resulting "Security Considerations" section is mandatory in the instruction document.
 
 **🛑 Present research summary and wait for confirmation.**
 
@@ -68,11 +68,11 @@ Additional specialists as needed: `sam-coder` (data design), `peter-perf` (perfo
 
 **MANDATORY — Do not silently assume specialists are correct.**
 
-Follow the `codebase-reconnaissance` skill to verify every object the specialists mentioned. Additionally:
+Follow the `iFacto.codebase-reconnaissance` skill to verify every object the specialists mentioned. Additionally:
 
 0. **Use Logan (`logan-analyst`) via `bc-code-intel/ask_bc_expert`** to analyze the existing code in the affected area.
 
-1. For design trade-offs involving changes to shared objects: follow the `impact-analysis` skill to assess transitive risk.
+1. For design trade-offs involving changes to shared objects: follow the `iFacto.impact-analysis` skill to assess transitive risk.
 
 2. Surface ALL discrepancies:
    - Object mentioned by specialist but doesn't exist → flag it

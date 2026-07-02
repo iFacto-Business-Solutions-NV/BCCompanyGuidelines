@@ -39,7 +39,7 @@ For every commit, check:
 
 ## Step 4: Code Verification (MANDATORY)
 
-Follow the `documentation-generation` skill's code verification procedure:
+Follow the `iFacto.documentation-generation` skill's code verification procedure:
 1. `ms-dynamics-smb.al/al_symbolsearch` — enumerate objects
 2. `ms-dynamics-smb.al/al_getdiagnostics` — build health
 3. `read_file`, `grep_search` — verify field names, captions, procedures
@@ -47,7 +47,7 @@ Follow the `documentation-generation` skill's code verification procedure:
 
 ## Step 5: Execute All Updates
 
-Follow the `documentation-generation` skill for folder structure, templates, and changelog rules.
+Follow the `iFacto.documentation-generation` skill for folder structure, templates, and changelog rules.
 
 Create/update all relevant documentation files. Never ask whether to create — always do it.
 

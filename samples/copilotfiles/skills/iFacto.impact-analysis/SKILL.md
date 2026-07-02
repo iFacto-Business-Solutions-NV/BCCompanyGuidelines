@@ -1,5 +1,5 @@
 ---
-name: impact-analysis
+name: iFacto.impact-analysis
 description: 'Analyze what breaks if an object, field, or procedure changes. Use when: approving risky changes in review, before refactoring, evaluating design trade-offs. Builds dependency tree and identifies transitive risk.'
 ---
 

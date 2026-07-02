@@ -12,7 +12,7 @@ Automates the release flow for Azure DevOps projects.
 **CRITICAL**: Release version number (format: `xx.x`, e.g., `27.2`) MUST be provided before proceeding. Stop and show error if missing.
 
 ## Step 0: Pre-Release Health Check
-Follow the `al-build-validation` skill — diagnostics-only mode:
+Follow the `iFacto.al-build-validation` skill — diagnostics-only mode:
 - Run `al_getdiagnostics` — list any AL errors
 - Ask user whether to fix before proceeding or continue anyway
 
