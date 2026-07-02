@@ -1,13 +1,7 @@
 ---
-description: "iFacto AL Code Implementation Agent - coordinates AL code development using bc-code-intel specialists. Use when: writing new AL objects, implementing features, creating table extensions, building business logic codeunits."
 name: iFacto.ALCoder
-model: Claude Sonnet 4.6
-tools: [vscode/getProjectSetupInfo, vscode/installExtension, vscode/memory, vscode/newWorkspace, vscode/resolveMemoryFileUri, vscode/runCommand, vscode/vscodeAPI, vscode/extensions, vscode/askQuestions, execute/runNotebookCell, execute/testFailure, execute/getTerminalOutput, execute/awaitTerminal, execute/killTerminal, execute/runTask, execute/createAndRunTask, execute/runInTerminal, execute/runTests, read/getNotebookSummary, read/problems, read/readFile, read/viewImage, read/readNotebookCellOutput, read/terminalSelection, read/terminalLastCommand, read/getTaskOutput, agent/runSubagent, edit/createDirectory, edit/createFile, edit/createJupyterNotebook, edit/editFiles, edit/editNotebook, edit/rename, search/changes, search/codebase, search/fileSearch, search/listDirectory, search/searchResults, search/textSearch, search/searchSubagent, search/usages, web/fetch, web/githubRepo, browser/openBrowserPage, al-mcp-server/al_find_references, al-mcp-server/al_get_object_definition, al-mcp-server/al_get_object_summary, al-mcp-server/al_packages, al-mcp-server/al_search_object_members, al-mcp-server/al_search_objects, bc-code-intel/analyze_al_code, bc-code-intel/ask_bc_expert, bc-code-intel/create_layer_content, bc-code-intel/extract_bc_snapshot, bc-code-intel/find_bc_knowledge, bc-code-intel/get_bc_topic, bc-code-intel/get_codelens_mappings, bc-code-intel/get_workspace_info, bc-code-intel/list_prompts, bc-code-intel/list_specialists, bc-code-intel/scaffold_layer_repo, bc-code-intel/set_workspace_info, bc-code-intel/validate_layer_repo, bc-code-intel/workflow_batch, bc-code-intel/workflow_cancel, bc-code-intel/workflow_complete, bc-code-intel/workflow_list, bc-code-intel/workflow_next, bc-code-intel/workflow_progress, bc-code-intel/workflow_start, bc-code-intel/workflow_status, mcp-server-atlassian-confluence/conf_delete, mcp-server-atlassian-confluence/conf_get, mcp-server-atlassian-confluence/conf_patch, mcp-server-atlassian-confluence/conf_post, mcp-server-atlassian-confluence/conf_put, mcp-server-atlassian-jira/jira_delete, mcp-server-atlassian-jira/jira_get, mcp-server-atlassian-jira/jira_patch, mcp-server-atlassian-jira/jira_post, mcp-server-atlassian-jira/jira_put, microsoft-learn-mcp/microsoft_code_sample_search, microsoft-learn-mcp/microsoft_docs_fetch, microsoft-learn-mcp/microsoft_docs_search, ms-dynamics-smb.al/al_build, ms-dynamics-smb.al/al_compile, ms-dynamics-smb.al/al_downloadsymbols, ms-dynamics-smb.al/al_symbolsearch, ms-dynamics-smb.al/al_get_diagnostics, ms-dynamics-smb.al/al_symbolrelations, vjeko.vjeko-al-objid/ninjaNextId, vjeko.vjeko-al-objid/ninjaUnassignId, ifacto-token-tracker/report_token_waste, todo]
-agents: [iFacto.CodeReviewer]
-handoffs:
-  - label: "Hand off to Code Reviewer"
-    agent: iFacto.CodeReviewer
-    prompt: "Please review the implemented AL code for correctness, adherence to iFacto company standards, and best practices."
+description: "iFacto AL Code Implementation Agent - coordinates AL code development using bc-code-intel specialists. Use when: writing new AL objects, implementing features, creating table extensions, building business logic codeunits."
+model: sonnet
 ---
 
 # iFacto AL Code Implementation Agent
@@ -119,3 +113,6 @@ When renaming, moving, or modifying shared objects:
 2. If breaking change across projects: warn user, get confirmation
 3. Proceed with refactoring only when risk is understood
 
+## Related agents
+
+This agent coordinates with: `iFacto.CodeReviewer`. Claude Code has no native handoff — recommend the user run the relevant agent, or use the Task tool to delegate.

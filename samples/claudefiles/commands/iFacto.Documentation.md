@@ -1,8 +1,8 @@
 ---
 description: "Generate or update project documentation — analyzes either full git history or current branch diff, verifying against code and JIRA issues."
-agent: iFacto.Documentation
-tools: [read, edit, search, execute, bc-code-intel/*, al-mcp-server/*, ms-dynamics-smb.al/*, mcp-server-atlassian-jira/*]
 ---
+
+> Recommended agent: `iFacto.Documentation`
 
 # Documentation Update
 

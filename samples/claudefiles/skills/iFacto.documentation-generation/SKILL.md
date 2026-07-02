@@ -1,5 +1,5 @@
 ---
-name: documentation-generation
+name: iFacto.documentation-generation
 description: 'Generate and maintain BC project documentation in the Docs folder. Use when: writing user guides, setup docs, test procedures, changelogs, developer reference, PR documentation. Provides folder structure rules, templates, and changelog format.'
 ---
 

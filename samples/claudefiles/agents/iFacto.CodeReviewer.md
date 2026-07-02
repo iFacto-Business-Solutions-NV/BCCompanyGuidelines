@@ -1,13 +1,7 @@
 ---
-description: "iFacto Company Code Review Agent - coordinates comprehensive BC code reviews using bc-code-intel specialists. Use when: reviewing AL code, validating company standards compliance, pre-merge quality checks."
 name: iFacto.CodeReviewer
-model: Claude Sonnet 4.6
-tools: [read/getNotebookSummary, read/problems, read/readFile, read/viewImage, read/readNotebookCellOutput, read/terminalSelection, read/terminalLastCommand, read/getTaskOutput, agent/runSubagent, search/changes, search/codebase, search/fileSearch, search/listDirectory, search/searchResults, search/textSearch, search/searchSubagent, search/usages, al-mcp-server/al_find_references, al-mcp-server/al_get_object_definition, al-mcp-server/al_get_object_summary, al-mcp-server/al_packages, al-mcp-server/al_search_object_members, al-mcp-server/al_search_objects, bc-code-intel/analyze_al_code, bc-code-intel/ask_bc_expert, bc-code-intel/create_layer_content, bc-code-intel/extract_bc_snapshot, bc-code-intel/find_bc_knowledge, bc-code-intel/get_bc_topic, bc-code-intel/get_codelens_mappings, bc-code-intel/get_workspace_info, bc-code-intel/list_prompts, bc-code-intel/list_specialists, bc-code-intel/scaffold_layer_repo, bc-code-intel/set_workspace_info, bc-code-intel/validate_layer_repo, bc-code-intel/workflow_batch, bc-code-intel/workflow_cancel, bc-code-intel/workflow_complete, bc-code-intel/workflow_list, bc-code-intel/workflow_next, bc-code-intel/workflow_progress, bc-code-intel/workflow_start, bc-code-intel/workflow_status, mcp-server-atlassian-confluence/conf_delete, mcp-server-atlassian-confluence/conf_get, mcp-server-atlassian-confluence/conf_patch, mcp-server-atlassian-confluence/conf_post, mcp-server-atlassian-confluence/conf_put, mcp-server-atlassian-jira/jira_delete, mcp-server-atlassian-jira/jira_get, mcp-server-atlassian-jira/jira_patch, mcp-server-atlassian-jira/jira_post, mcp-server-atlassian-jira/jira_put, microsoft-learn-mcp/microsoft_code_sample_search, microsoft-learn-mcp/microsoft_docs_fetch, microsoft-learn-mcp/microsoft_docs_search, ms-dynamics-smb.al/al_build, ms-dynamics-smb.al/al_debug, ms-dynamics-smb.al/al_downloadsymbols, ms-dynamics-smb.al/al_publish, ms-dynamics-smb.al/al_setbreakpoint, ms-dynamics-smb.al/al_snapshotdebugging, ms-dynamics-smb.al/al_symbolsearch, ms-dynamics-smb.al/al_get_diagnostics, ms-dynamics-smb.al/al_symbolrelations, ifacto-token-tracker/report_token_waste]
-agents: [iFacto.ALCoder]
-handoffs:
-  - label: "Auto-fix AL code issues"
-    agent: iFacto.ALCoder
-    prompt: "Please apply all required code fixes as identified in the review findings."
+description: "iFacto Company Code Review Agent - coordinates comprehensive BC code reviews using bc-code-intel specialists. Use when: reviewing AL code, validating company standards compliance, pre-merge quality checks."
+model: sonnet
 ---
 
 # iFacto Company Code Review Agent
@@ -85,3 +79,6 @@ Follow the `iFacto.al-security-review` skill in **`review` mode**.
 - After fixes: re-validate with waldo and Roger, update report
 - **Full Automation Mode**: When user requests, hand off to `iFacto.ALCoder` to auto-fix findings
 
+## Related agents
+
+This agent coordinates with: `iFacto.ALCoder`. Claude Code has no native handoff — recommend the user run the relevant agent, or use the Task tool to delegate.

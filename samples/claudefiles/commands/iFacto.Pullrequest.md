@@ -1,8 +1,8 @@
 ---
 description: "Apply all steps to create a pull request for your new developments — includes JIRA validation, documentation, and Azure DevOps PR creation."
-agent: iFacto.Documentation
-tools: [read, search, execute, bc-code-intel/*, al-mcp-server/*, ms-dynamics-smb.al/*, mcp-server-atlassian-jira/*]
 ---
+
+> Recommended agent: `iFacto.Documentation`
 
 # Pull Request Documentation
 

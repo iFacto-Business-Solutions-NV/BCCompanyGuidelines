@@ -1,5 +1,5 @@
 ---
-name: codebase-reconnaissance
+name: iFacto.codebase-reconnaissance
 description: 'Discover existing objects, baseline errors, and extension points before writing or designing code. Use when: starting any AL implementation, designing solutions, reviewing code context. Replaces ad-hoc symbol/diagnostic discovery steps.'
 ---
 

@@ -1,8 +1,8 @@
 ---
 description: "Automates the release flow for Azure DevOps projects — creates release branches, updates pipeline config, pushes in dependency order."
-agent: iFacto.ALCoder
-tools: [read, edit, search, execute, al-mcp-server/*]
 ---
+
+> Recommended agent: `iFacto.ALCoder`
 
 # Product Release Automation
 

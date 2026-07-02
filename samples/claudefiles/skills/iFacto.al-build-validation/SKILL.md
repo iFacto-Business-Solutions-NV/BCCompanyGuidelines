@@ -1,5 +1,5 @@
 ---
-name: al-build-validation
+name: iFacto.al-build-validation
 description: 'Build, diagnose, and fix AL code iteratively. Use when: compiling AL projects, validating code changes, pre-release health checks, post-implementation verification. Provides a reusable build→diagnose→fix loop.'
 ---
 
